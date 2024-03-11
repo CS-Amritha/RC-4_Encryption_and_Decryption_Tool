@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RC4</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+		.heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+		.description {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 18px; 
+            max-width: 700px;
+            width: 100%;
+            margin-left: auto; 
+            margin-right: auto;
+        }
+		body
+		{
+			background-color: rgb(199, 153, 212);
+		}
+
+		h2 {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: red;
+            font-size: 16px;
+            background: #0c132100;
+            border: none;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+
+		  h2:hover{
+			background: red;
+            color: white;
+            border: red;
+            border-radius: 5px;
+            box-shadow: 0 0 5px red,
+                        0 0 25px red,
+                        0 0 50px red,
+                        0 0 100px red;
+			transition: transform .8s;
+		  }
+          
+          h2 span {
+            position: absolute;
+            display: block;
+          }
+          
+          h2 span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, red);
+            animation: btn-anim1 1s linear infinite;
+          }
+          
+          @keyframes btn-anim1 {
+            0% {
+              left: -100%;
+            }
+            50%,100% {
+              left: 100%;
+            }
+          }
+          
+          h2 span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, red);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+          }
+          
+          @keyframes btn-anim2 {
+            0% {
+              top: -100%;
+            }
+            50%,100% {
+              top: 100%;
+            }
+          }
+          
+          h2 span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, red);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+          }
+          
+          @keyframes btn-anim3 {
+            0% {
+              right: -100%;
+            }
+            50%,100% {
+              right: 100%;
+            }
+          }
+          
+          h2 span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, red);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+          }
+          
+          @keyframes btn-anim4 {
+            0% {
+              bottom: -100%;
+            }
+            50%,100% {
+              bottom: 100%;
+            }
+          }
+		</style>
+	</head>
+
+	<body align=center>
+		<div class="heading">
+				<h1>RC-4 Encryption and Decryption Tool</h1>
+				<div class="description">
+					<p>
+						<strong>RC-4</strong>, also known as <strong>Rivest Cipher 4 </strong>or <strong>Ron's Code 4</strong>, is a symmetric stream cipher
+						 algorithm widely used in communications, protocols, and systems.It generates a continuous keystream to encrypt and decrypt data byte
+						 by byte. <a href="https://en.wikipedia.org/wiki/RC4" target="_blank">More Details</a>
+					</p>
+				</div>
+		</div>
+			<br>
+			<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<form class="form-horizontal" method="post">
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="var_1">Plaintext/Ciphertext :</label>
+						<div class="col-xs-7">
+							<input type="text" class="form-control" name="var_1" value="{{ request.form['var_1'] }}" placeholder="&nbsp;text here&nbsp;">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="var_1">Key :</label>
+						<div class="col-xs-7">
+							<input type="text" class="form-control" name="var_2" value="{{ request.form['var_2'] }}" placeholder="&nbsp;text here&nbsp;">
+						</div>
+					</div>
+					<div class="form-group">
+            			<label class="control-label col-xs-3">Operation :</label>
+            			<div class="col-xs-7">
+                			<select class="form-control" name="operation">
+                    			<option>Encrypt</option>
+                    			<option>Decrypt</option>
+                			</select>
+            			</div>
+            		</div>
+					<div class="form-group">
+            			<div class="col-xs-offset-3 col-xs-9">
+                			<input type="submit" class="btn btn-success" value="Submit">
+            			</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3">Output :</label>
+						<div class="col-xs-7">
+							<input type="text" name="result" class="form-control" value={{ entry }} >
+						</div>
+					</div>
+        		</form>
+				<h2>{%print(k)%}</h2>
+        	</div>
+        	<div class="col-md-4"></div></div>
+			
+		</div>
+	</body>
+</html>
