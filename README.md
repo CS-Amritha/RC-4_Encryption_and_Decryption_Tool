@@ -1,4 +1,4 @@
-![image](https://github.com/CS-Amritha/RC-4_Encryption_and_Decryption_Tool/assets/116827842/926446dc-9446-4c40-a759-7b6991ae353b)# RC-4_Encryption_and_Decryption_Tool
+# RC-4_Encryption_and_Decryption_Tool
 RC-4 Implementation Repository: Hosts Python code implementing RC-4 encryption/decryption. Includes a Flask web app for user-friendly interaction.
 # Modern Cryptography
 
